@@ -1,0 +1,54 @@
+<storyface-header></storyface-header>
+<div class="container">
+	<h1>
+		{{ 'Help' | translate}}
+	</h1>
+	<div class="row mb-0" ng-if="!$ctrl.lang || $ctrl.lang=='fr'">
+        <p class="col-12">
+            Storyface vous permet de créer des personnages fictifs qui pourront être proposés aux utilisateurs de l'application comme partenaires potentiels, sous réserve de validation par l'administrateur.
+				 <br>Pour créer des personnages, rendez-vous sur la <a href="/storyface{{$ctrl.lang?'/'+$ctrl.lang:''}}/profiles">page dédiée.</a>
+				 <br>Là, une interface de modification des informations du personnage vous permettra de définir ses informations générales, tandis qu'une interface d'édition de chat vous permettra de créer un dialogue.
+				 <br>Une <b>étape</b> du dialogue consiste en une question de votre personnage, puis en une réponse que l'utilisateur choisit parmi celles que vous lui proposez et une réaction du personnage à la réponse de l'utilisateur.
+				 <br>Le <b>dialogue</b> est composé d'une succession d'étapes. Voici quelques informations utiles lors de la création d'un dialogue :
+			 </p>
+				 <ul>
+					 <li>Vous pouvez donner la possibilité à votre personnage de quitter la conversation en activant le bouton "Fin de chat"</li>
+					 <li>Vous avez également la possibilité de proposer une réponse spécifique à un dialogue entre un personnage et un utilisateur de même genre avec le bouton "Réponse homosexuelle"</li>
+					 <li>Assigner une émotion à une réplique de votre personnage ajoutera simplement un emoji à la fin de son message. En assignant une émotion à une réponse de l'utilisateur, la concordance entre l'émotion choisie pour la réponse et l'émotion exprimée par le visage de l'utilisateur sera vérifiée lors de la sélection de la réponse par l'utilisateur.</li>
+					 <li>Le champ "Answer after phone number" est le message envoyé par le profil quand la conversation est allée jusqu'au bout, sans que l'utilisateur ne choisisse une réponse déclenchant un "EXIT". Le champ "Answer after lies" est le message envoyé lorsque le profil quitte la conversation parce que les émotions de l'utilisateur ne concordaient pas avec celles d'un message qu'il a choisi.</li>
+				 </ul>
+				<p class="col-12">
+				 <br>Voici quelques conseils pour écrire un bon personnage :
+				</p>
+				 <ul>
+					 <li>Ecrivez vos réponses depuis le point de vue de votre personnage.</li>
+					 <li>Jouez avec les <b>émotions</b> des utilisateurs en assignant des émotions à certaines réponses.</li>
+					 <li><b>Testez</b> votre personnage ; depuis l'interface de visualisation des profils, un bouton "chatter" est disponible à côté de chaque profile t vous permet de chatter avec n'importe quel profil, même s'il n'est pas validé.</li>
+				 </ul>
+				 <br>
+	</div>
+	<div class="row mb-0" ng-if="!$ctrl.lang || $ctrl.lang=='en'">
+		<p class="col-12">
+			Storyface allows you to create fictional characters that, with the administrator's approval, will be potential matches to Storyface users.
+		 <br>To create characters, there is a <a href="/storyface{{$ctrl.lang?'/'+$ctrl.lang:''}}/profiles">dedicated interface.</a>
+		 <br>There, a form will allow you to edit your character's personal information, and another form will allow you create a dialogue.
+		 <br>A <b>step</b> consists of a question asked by your character, an answer from the user that he or she will pick from a list of available answers and an answer from your character.
+		 <br>The <b>dialogue</b> consists of a succession of steps. Here is some useful information when writing your character's dialogue :
+	 </p>
+		 <ul>
+			 <li>For each answer that the user will be able to pick, you have the possibility to make your character leave the chat as a reaction to that answer by clicking the "End of chat" button.</li>
+			 <li>You also have the possibility to make an answer specific to a discussion between a character and a user of the same genre with the "Homosexual answer" checkbox.</li>
+			 <li>When an emotion is added to one of your character's lines, it will add an emoji ad the end of it. By assigning an emotion to one of the answers the user will be able to choose, the match between the emotions expressed by the user's face and the answer the user will choose will be verified.</li>
+			 <li>The "Answer after phone number" field is the message sent by your character when the user has reached the end of the dialogue without triggering an "End of chat" from your character. The "Answer after lies" field is the message sent when the profile leaves the chat because the user chose  has chosen an answer that did not match his/her facial emotions.</li>
+		 </ul>
+		<p class="col-12">
+		 <br>A few important points to take into account when writing a character :
+		</p>
+		 <ul>
+			 <li>Take your character's point of view to write his or her lines.</li>
+			 <li>Play with the users' <b>emotions</b> by adding emotions to users' answers.</li>
+			 <li><b>Test</b> your character ; from the profile list interface, a "Chat" button is available next to each profile, regardless of whether or not the admin published it.</li>
+		 </ul>
+		 <br>
+	</div>
+</div>

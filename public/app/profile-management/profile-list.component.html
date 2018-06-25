@@ -1,0 +1,105 @@
+<storyface-header></storyface-header>
+<md-content>
+	<md-button class="md-raised" md-colors="{background : 'green'}" href="/storyface/{{$ctrl.lang}}/profiles/new">{{'New' | translate}}</md-button>
+	<md-button ng-if="$ctrl.currentUserRole==='admin'" class="md-raised" ng-click="$ctrl.downloadProfiles()">{{'Download_profiles' | translate}}</md-button>
+	<md-button ng-if="$ctrl.currentUserRole==='admin'" class="md-raised" ng-click="$ctrl.uploadProfiles()">{{'Upload_profiles' | translate}}</md-button>
+	
+	<md-tabs md-dynamic-height md-selected="$ctrl.selected">
+		<md-tab label="{{'French' | translate}}">
+			<div class="row">
+				<div class="col-12 col-md-3 mx-auto">
+					<md-input-container>
+						<label>{{'Filter_by_published_status' | translate}}</label>
+						<md-select ng-model="publishFilterFR">
+							<md-option ng-value="undefined" >{{'Do_not_filter' | translate}}</md-option>
+							<md-option ng-value="true">{{'Show_only_published' | translate}}</md-option>
+							<md-option ng-value="false">{{'Show_only_not_published' | translate}}</md-option>
+					    </md-select>
+					</md-input-container>					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="profile in $ctrl.getProfiles('fr')" ng-if="publishFilterFR ===undefined || profile.published===publishFilterFR">
+					<md-card>
+						<md-card-title>
+							<md-card-title-text>
+								<span class="md-headline">{{profile.name}}</span>
+								<span class="md-subhead">{{profile.title}}</span>
+							</md-card-title-text>
+						<md-card-title-media>
+							<div class="md-media-md card-media">
+								<img ng-src="/storyface/profile-pics/{{profile.id}}.png" width="112" height="112" style="border-radius: 50%">
+							</div>
+						</md-card-title-media>
+						</md-card-title>
+						<div class="card-info">Published : <span ng-class="{'card-published' : profile.published, 'card-not-published' : !profile.published}">&#9679;</span></div>
+						<div class="card-info" ng-if="$ctrl.currentUserRole==='admin'">
+							Author : {{profile.authorInfos.username}} ({{profile.authorInfos.name}} {{profile.authorInfos.surname}})
+						</div>
+						<md-card-actions layout="row" layout-align="end center">
+							<md-button ng-href="/storyface/fr/chat/{{profile.id}}" target="blank" class="md-raised">
+								{{'Chat' | translate}}
+							</md-button>
+
+							<md-button ng-href="/storyface/{{$ctrl.lang}}/profiles/edit/{{profile.id}}" class="md-raised md-primary">
+								{{'Edit' | translate}}
+							</md-button>
+
+							<md-button ng-click="$ctrl.remove(profile)" class="md-raised md-warn">
+								{{'Remove' | translate}}
+							</md-button>
+						</md-card-actions>
+					</md-card>
+				</div>
+			</div>
+		</md-tab>
+		<md-tab label="{{'English' | translate}}">
+			<div class="row">
+				<div class="col-12 col-md-3 mx-auto">
+					<md-input-container>
+						<label>{{'Filter_by_published_status' | translate}}</label>
+						<md-select ng-model="publishFilterEN">
+							<md-option ng-value="undefined">{{'Do_not_filter' | translate}}</md-option>
+							<md-option ng-value="true">{{'Show_only_published' | translate}}</md-option>
+							<md-option ng-value="false">{{'Show_only_not_published' | translate}}</md-option>
+					    </md-select>
+					</md-input-container>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="profile in $ctrl.getProfiles('en')" ng-if="publishFilterEN ===undefined || profile.published===publishFilterEN">
+					<md-card>
+						<md-card-title>
+							<md-card-title-text>
+								<span class="md-headline">{{profile.name}}</span>
+								<span class="md-subhead">{{profile.title}}</span>
+							</md-card-title-text>
+						<md-card-title-media>
+							<div class="md-media-md card-media">
+								<img ng-src="/storyface/profile-pics/{{profile.id}}.png" width="112" height="112" style="border-radius: 50%">
+							</div>
+						</md-card-title-media>
+						</md-card-title>
+						<div class="card-info">Published : <span ng-class="{'card-published' : profile.published, 'card-not-published' : !profile.published}">&#9679;</span></div>
+						<div class="card-info" ng-if="$ctrl.currentUserRole==='admin'">
+							Author : {{profile.authorInfos.username}} ({{profile.authorInfos.name}} {{profile.authorInfos.surname}})
+						</div>
+						<md-card-actions layout="row" layout-align="end center">
+							<md-button ng-href="/storyface/en/chat/{{profile.id}}" class="md-raised">
+								{{'Chat' | translate}}
+							</md-button>
+
+							<md-button ng-href="/storyface/{{$ctrl.lang}}/profiles/edit/{{profile.id}}" class="md-raised md-primary">
+								{{'Edit' | translate}}
+							</md-button>
+
+							<md-button ng-click="$ctrl.remove(profile)" class="md-raised md-warn">
+								{{'Remove' | translate}}
+							</md-button>
+						</md-card-actions>
+					</md-card>
+				</div>
+			</div>
+		</md-tab>
+	</md-tabs>
+</md-content>

@@ -1,0 +1,31 @@
+<storyface-header></storyface-header>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-5 offset-md-1 col-12 emotions-webcam-container" >
+			<div class="row">
+				<face-analysis  show-emojis="true" emoji-size="50"></face-analysis>
+			</div>
+			<div class="row">
+				<h2 class="mx-auto">
+					{{'Express_emotion_that_best_corresponds_yourself_1' | translate}}
+					<br>
+					{{'Express_emotion_that_best_corresponds_yourself_2' | translate}}
+				</h2>
+			</div>
+		</div>
+		<div class="col-md-6 vertical-center">
+			<div class="row" ng-hide="$ctrl.displayFindLoveButton">
+				<div ng-repeat="record in $ctrl.emotionCount" class="col-4">
+					<div class="row">
+						<gauge  percentage="record.count*100/$ctrl.maxEmotion" emotion="record.emotion" color="'#77C9F0'" class="mx-auto" ng-class="{'discarded-emotion' : $ctrl.mainEmotion && record.emotion != $ctrl.mainEmotion}"></gauge>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto" ng-show="$ctrl.displayFindLoveButton">
+				<md-button class="md-raised find-love-button" ng-href="/storyface/{{$ctrl.lang}}/choose">
+					<span ng-bind-html="$ctrl.mainEmotion | emoji:50"></span>{{'Find_love' | translate}}
+				</md-button>
+			</div>
+		</div>
+	</div>
+</div>

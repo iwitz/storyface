@@ -1,0 +1,16 @@
+<storyface-header></storyface-header>
+<md-content>
+	<div class="container">
+		<md-button class="md-raised" ng-href="/storyface/{{$ctrl.lang}}/profiles">{{'Back_to_list' | translate}}</md-button>
+		<profile ng-if="$ctrl.profile" ng-model="$ctrl.profile" ></profile>
+		<div id="footer-fill"></div>
+		<div id="options-footer" class="border-top">
+			<md-button ng-click="$ctrl.saveProfile()" class="md-raised md-primary" ng-disabled="!$ctrl.profile.title || !$ctrl.profile.language || $ctrl.currentlyEditing">
+				{{'Save' | translate}} {{$ctrl.profile.title}}
+			</md-button>
+			<md-button ng-href="/storyface/{{$ctrl.lang}}/chat/{{$ctrl.profile.id}}" target="blank" class="md-raised">
+				{{'Chat' | translate}}
+			</md-button>
+		</div>
+	</div>
+</md-content>

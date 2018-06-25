@@ -1,0 +1,31 @@
+<storyface-header></storyface-header>
+<md-content>
+	<div style='width:100%;text-align:center' md-colors="{background: 'red-900'}">User management interface</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="user in $ctrl.getUsers()">
+			<md-card>
+				<md-card-title>
+					<md-card-title-text>
+						<span class="md-headline">{{user.username}}</span>
+						<span class="md-subhead">{{user.email}}</span>
+					</md-card-title-text>
+				</md-card-title>
+				<md-card-actions layout="row" layout-align="end center">
+				
+					<md-button ng-href="/storyface/users/edit/{{user._id}}" class="md-raised md-primary" md-colors="{background: 'grey-500'}" ng-show="user.role !== 'admin'">
+						Edit
+					</md-button>
+					<md-button ng-href="/storyface/users/edit/{{user._id}}" class="md-raised md-primary" ng-show="user.role === 'admin'" disabled>
+						Edit
+					</md-button>
+					<md-button ng-click="$ctrl.remove(user)" class="md-raised md-warn" md-colors="{background: 'red-900'}" ng-show="user.role !== 'admin'">
+						Remove
+					</md-button>
+					<md-button ng-click="$ctrl.remove(user)" class="md-raised md-warn" ng-show="user.role === 'admin'" disabled>
+						Remove
+					</md-button>
+				</md-card-actions>
+			</md-card>
+		</div>
+	</div>
+</md-content>

@@ -1,0 +1,39 @@
+<storyface-header></storyface-header>
+<md-content>
+	<div style='width:100%;text-align:center' md-colors="{background: 'red-900'}">User management interface</div>
+	<div class="container">
+		<md-button class="md-raised" ng-href="/storyface/user-info">Back to list</md-button>
+		<user ng-if="$ctrl.user" ng-model="$ctrl.user" ></user>
+
+
+		<div class="row row-form">
+			<div class="col-md-6">
+				<md-input-container>
+					<label>Username</label>
+					<input type="text" name="user-username" ng-model="$ctrl.user.username" />
+				</md-input-container>
+				<md-input-container>
+					<label>Name</label>
+					<input type="text" name="user-name" ng-model="$ctrl.user.name" />
+				</md-input-container>
+				<md-input-container>
+					<label>Surname</label>
+					<input type="text" name="user-surname" ng-model="$ctrl.user.surname" />
+				</md-input-container>
+				<md-input-container>
+					<label>Email</label>
+					<input type="text" name="user-email" ng-model="$ctrl.user.email" />
+				</md-input-container>
+				<md-input-container >
+					<label>Change password</label>
+					<input type="password" name="user-password" ng-model="$ctrl.user.password">
+					<span class="text-danger">Let empty if you don't want to change</span>
+				  </md-input-container>
+			</div>
+		</div>
+
+		<md-button ng-click="$ctrl.saveUser()" class="md-raised md-primary">
+			Save
+		</md-button>
+	</div>
+</md-content>

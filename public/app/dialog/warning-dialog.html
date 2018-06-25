@@ -1,0 +1,28 @@
+<md-dialog>
+	<md-toolbar class="text-center warning-toolbar" >
+		<div class="md-toolbar-tools">
+			<h2 md-truncate flex>
+				{{title}}
+				<span ng-bind-html="anger | emoji"></span>
+			</h2>
+		</div>
+	</md-toolbar>
+	<md-dialog-content class="p-2">
+		<p ng-repeat="txt in content">{{txt}}</p>
+		<br>
+		<md-checkbox
+              ng-model="promise"
+							ng-disabled="!audio_over"
+              aria-label="{{ 'promise' || translate}}"
+              class="md-warn md-align-top-left">
+							{{"promise" | translate}}
+	  </md-checkbox>
+	<br>
+	<section layout="column" layout-align="center">
+		<md-button ng-click="closeDialog()" class="md-primary" ng-disabled="!promise">
+			 {{"continue" | translate}}
+		</md-button>
+	</section>
+	</md-dialog-content>
+
+</md-dialog>

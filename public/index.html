@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="storyface">
+<head>
+	<base href="/storyface/">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon"  href="favicon.ico">
+ 	<link rel="stylesheet" type="text/css" href="styles/style.css">
+ 	<link rel="stylesheet" type="text/css" href="styles/angular-material.min.css" />
+ 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.css" />
+ 	<link rel="stylesheet" type="text/css" href="/storyface/angular/ui-cropper.css">
+	<title>StoryFace</title>
+	<script src="/storyface/base64.js"></script>
+	<script src="/storyface/FileSaver.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.17.0/angular-translate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-cookies.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-aria.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.5/angular-messages.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.min.js"></script>
+	<script src="/storyface/angular/ui-cropper.js"></script>
+	<script src="/storyface/angular/Chart.min.js"></script>
+	<script src="/storyface/angular/angular-chart.min.js"></script>
+	<script src="/storyface/app/app.module.js"></script>
+	<script src="/storyface/app/app.translations.config.js"></script>
+	<script src="/storyface/app/app.routes.config.js"></script>
+	<script src="/storyface/app/dialog/storyface-dialog.service.js"></script>
+	<script src="/storyface/app/face-analysis/face-analysis.service.js"></script>
+	<script src="/storyface/app/face-analysis/face-analysis.component.js"></script>
+	<script src="/storyface/app/user-info/user-info.service.js"></script>
+	<script src="/storyface/app/storyface-header/storyface-header.component.js"></script>
+	<script src="/storyface/app/welcome/welcome.component.js"></script>
+	<script src="/storyface/app/gender/gender.component.js"></script>
+	<script src="/storyface/app/emotions/emotions.component.js"></script>
+	<script src="/storyface/app/emotions/emotion-star.component.js"></script>
+	<script src="/storyface/app/emotions/gauge.component.js"></script>
+	<script src="/storyface/app/profile-choice/profile-choice.component.js"></script>
+	<script src="/storyface/app/profile-management/profile.service.js"></script>
+	<script src="/storyface/app/chat/chat.component.js"></script>
+	<script src="/storyface/app/profile-management/profile-list.component.js"></script>
+	<script src="/storyface/app/profile-management/profile.component.js"></script>
+	<script src="/storyface/app/profile-management/discussion.component.js"></script>
+	<script src="/storyface/app/profile-management/message.component.js"></script>
+	<script src="/storyface/app/profile-management/add-profile.component.js"></script>
+	<script src="/storyface/app/profile-management/edit-profile.component.js"></script>
+	<script src="/storyface/app/profile-management/help.component.js"></script>
+	<script src="/storyface/app/audio/audio.service.js"></script>
+	<script src="/storyface/app/emojis/emoji.filter.js"></script>
+	<script src="/storyface/app/info/info.component.js"></script>
+	<script src="/storyface/app/authentication/authentication.service.js"></script>
+	<script src="/storyface/app/authentication/authentication.component.js"></script>
+	<script src="/storyface/scripts/responsivevoice.js"></script>
+	<script src="/storyface/scripts/accordion.js"></script>
+	<script src="/storyface/app/authentication/signup.component.js"></script>
+	<script src="/storyface/app/user-info/user-info.component.js"></script>
+	<script src="/storyface/app/user-info/user-info-edit.component.js"></script>
+	<script src="/storyface/app/dialog/naughty-boy.service.js"></script>
+
+
+</head>
+<body ng-controller="appController">
+
+
+
+	<div ng-view> Loading ...</div>
+	<div id="toast-container"></div>
+
+	<!-- Visage Technologies API, must not be modified-->
+	<!-- If you want to use the face recognition API or to render the webcam stream, use the angularjs face-analysis service/component -->
+	<canvas id="canvas" style="display: none"></canvas>
+	<script  src="/storyface/FaceAnalysisCustomAPI.js"></script>
+	<script async src="/storyface/visageTechnologies/bezier-spline.js"></script>
+	<script async src="/storyface/visageTechnologies/visageRendering.js"></script>
+	<script async src="/storyface/visageTechnologies/visageAnalysisData.js"></script>
+	<script async src="/storyface/visageTechnologies/visageSDK.js"></script>
+	<!--                                                    -->
+</body>
+</html>

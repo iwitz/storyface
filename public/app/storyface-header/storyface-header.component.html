@@ -1,0 +1,18 @@
+<header>
+	<a ng-hide="$ctrl.hideTitle" href="/storyface/">
+		<img id="title" src="/storyface/images/storyface-header.png" alt="Storyface">
+	</a>
+	<a ng-href="/storyface{{$ctrl.lang?'/'+$ctrl.lang:''}}/infos">
+		<img id="infos" src="/storyface/images/informations.png" alt="Info"/>
+	</a>
+	
+	<span ng-if="$ctrl.username" id="username">
+		{{$ctrl.username}}
+		<a ng-show='$ctrl.isAdmin' ng-href="/storyface/user-info">
+			<img id="logout-button" src="/storyface/images/baseline_folder_shared_black_18dp.png" alt="Info"/>
+		</a>
+		<a href="/storyface/" id="logout-button" ng-click="$ctrl.logout()">
+			<img src="/storyface/images/logout.svg">			
+		</a>
+	</span>
+</header>

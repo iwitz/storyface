@@ -1,0 +1,130 @@
+<md-button class="md-raised" ng-href="/storyface/{{$ctrl.lang}}/help">{{'Help' | translate}}</md-button>
+<md-button class="md-raised" ng-click="$ctrl.logProfile()">{{'Log_profile' | translate}}</md-button>
+
+<br>
+<br>
+	<h2>{{'Profile_infos' | translate}}</h2>
+		<!-- <md-content md-theme="docs-dark"> -->
+			<div class="row row-form">
+				<div class="col-md-6">
+					<md-input-container>
+						<label>{{'Title' | translate}}</label>
+						<input type="text" name="profile-title" ng-model="$ctrl.ngModel.title" />
+					</md-input-container>
+				</div>
+				<div class="col-md-3">
+					<md-input-container>
+						<label>{{'Name' | translate}}</label>
+						<input type="text" name="profile-name"  ng-model="$ctrl.ngModel.name" />
+					</md-input-container>
+				</div>
+				<div class="col-md-3">
+					<md-input-container>
+						<label>{{'Language' | translate}}</label>
+						<md-select ng-model="$ctrl.ngModel.language">
+							<md-option value="fr">{{'French' | translate}}</md-option>
+							<md-option value="en">{{'English' | translate}}</md-option>
+					    </md-select>
+					   </md-input-container>
+				</div>
+			</div>
+			<div class="row row-form">
+				<div class="col-md-3">
+					<md-input-container>
+						<label>{{'Gender' | translate}}</label>
+						<md-select ng-model="$ctrl.ngModel.gender">
+							<md-option value="m">{{'Male' | translate}}</md-option>
+							<md-option value="f">{{'Female' | translate}}</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+				<div class="col-md-4">
+					<md-input-container>
+						<label>{{'Age' | translate}}</label>
+						<input type="text" name="profile-age"  ng-model="$ctrl.ngModel.age" />
+					</md-input-container>
+				</div>
+				<div class="col-md-5" >
+					<md-input-container>
+						<label>{{'Profession' | translate}}</label>
+						<input type="text" name="profile-profession"  ng-model="$ctrl.ngModel.profession" />
+					</md-input-container>
+				</div>
+			</div>
+			<div class="row row-form">
+				<div class="col-md-8">
+					<md-input-container>
+						<label>{{'Quote' | translate}}</label>
+						<input type="text" name="profile-quote"  ng-model="$ctrl.ngModel.quote" />
+					</md-input-container>
+				</div>
+				<div class="col-md-4">
+					<md-input-container>
+						<label>{{'Hobby' | translate}}</label>
+						<input type="text" name="profile-hobby"  ng-model="$ctrl.ngModel.hobby" />
+					</md-input-container>
+				</div>
+			</div>
+			<div class="row row-form">
+				<div class="col-md-6">
+					<md-input-container>
+						<label>{{'Movie' | translate}}</label>
+						<input type="text" name="profile-movie"  ng-model="$ctrl.ngModel.movie" />
+					</md-input-container>
+				</div>
+				<div class="col-md-6">
+					<md-input-container>
+						<label>{{'Type_of_relationship' | translate}}</label>
+						<input type="text" name="profile-target"  ng-model="$ctrl.ngModel.target" />
+					</md-input-container>
+				</div>
+				<div class="col-md-6" ng-show="$ctrl.currentUserRole === 'admin'">
+					<md-input-container>
+						<label>{{'Author' | translate}}</label>
+						<md-select ng-model="$ctrl.ngModel.author">
+							<md-option ng-repeat="user in $ctrl.usersList" ng-value="user.id">
+								{{user.username}}
+							</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+				<div class="col-md-6" ng-hide="$ctrl.currentUserRole === 'admin'">
+					<p class = "author-label"> {{'Author_colon' | translate}} {{$ctrl.currentUserName}} </p>
+				</div>
+				<div class="col-md-6">
+					<md-switch ng-model="$ctrl.ngModel.published" ng-disabled="!($ctrl.currentUserRole == 'admin')">
+							{{'Publish' | translate}}
+					</md-switch>
+					<span ng-hide="$ctrl.currentUserRole==='admin' || $ctrl.ngModel.published" class="input-tip">You must wait for an admin approbation before your profile is made public</span>
+				</div>
+
+			<div class="row row-form">
+
+					<div class="row">
+						{{ 'profile_picture' | translate }}
+					</div>
+					<div class="row">
+						<md-button aria-label="Change profile pic" ng-if="$ctrl.profilePicSrc" ng-click="$ctrl.openImageInput()">
+							<img ng-src="{{$ctrl.profilePicSrc}}" width="112" height="112" style="border-radius: 50%">
+						</md-button>
+					</div>
+			</div>
+    </div>
+		<br>
+		<br>
+      <div class="row row-form">
+	       <h2 id="discussion">{{'Edit_chat' | translate}}</h2>
+      </div>
+	  <discussion ng-model="$ctrl.ngModel.discussion" ng-change="$ctrl.updateProfileDiscussion()"></discussion>
+
+      <!-- <div>
+        <button id="accordion" class="accordion" >Chat</button>
+        <div class="panel" id="discussion-wrapper">
+        </div>
+      </div> -->
+
+      <div>
+        <md-button aria-label="Save profile on computer" class="md-raised" ng-click="$ctrl.saveLocally()">
+          {{'Serv_down' | translate}}
+        </md-button>
+      </div>

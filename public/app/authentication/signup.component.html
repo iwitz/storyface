@@ -1,0 +1,47 @@
+<form ng-submit="$ctrl.signup()" name="frm" class="m-2">
+  <md-input-container>
+    <label>
+      {{'username' | translate}}
+    </label>
+    <input type="text" name="username" ng-model="$ctrl.username" required>
+  </md-input-container>
+  <md-input-container>
+    <label>
+      {{'name' | translate}}
+    </label>
+    <input type="text" name="name" ng-model="$ctrl.name" required>
+  </md-input-container>
+  <md-input-container>
+    <label>
+      {{'surname' | translate}}
+    </label>
+    <input type="text" name="surname" ng-model="$ctrl.surname" required>
+  </md-input-container>
+    <md-input-container>
+    <label>
+      {{'email' | translate}}
+    </label>
+    <input type="text" name="email" ng-model="$ctrl.email" required>
+  </md-input-container>
+  <md-input-container >
+    <label>{{'password' | translate}}</label>
+    <input type="password" name="password" ng-model="$ctrl.password" required>
+  </md-input-container>
+  <md-input-container >
+    <label>{{'confirm' | translate}}</label>
+    <input type="password" name="confirmPassword" ng-model="confirmPassword" required equal="michel">
+     <span ng-show="frm.confirmPassword.$dirty && confirmPassword != $ctrl.password" class="text-danger">Password does not match above</span>
+  </md-input-container>
+  <md-input-container>
+      {{'Gdpr_mention' | translate}}  <a href="mailto:famille.bouchardon@wanadoo.fr">M. Bouchardon</a> 
+      <md-checkbox name="gdpr_accept" ng-model="$ctrl.gdpr" required>
+        {{'Gdpr_accept' | translate}}
+      </md-checkbox>
+  </md-input-container>
+  <div class="mx-auto col-8">
+    <md-button  type="submit" class="md-raised md-primary col-12" aria-label="login" ng-disabled="frm.$invalid || $ctrl.password!==confirmPassword || !$ctrl.gdpr">
+      {{'signup' | translate}}
+      </md-button>
+
+  </div>
+</form>

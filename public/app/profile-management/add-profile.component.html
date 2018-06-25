@@ -1,0 +1,8 @@
+<storyface-header></storyface-header>
+<div class="container">
+	<profile ng-if="$ctrl.profile" ng-model="$ctrl.profile"></profile>
+	<div id="footer-fill"></div>
+	<div id="options-footer" class="border-top">
+		<md-button class="md-raised md-primary" ng-click="$ctrl.addProfile()" ng-disabled="!$ctrl.profile.title || !$ctrl.profile.language || !$ctrl.profile.gender">Add {{$ctrl.profile.title}} to Storyface !</md-button>
+	</div>
+</div>

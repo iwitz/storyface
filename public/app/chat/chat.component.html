@@ -1,0 +1,65 @@
+<storyface-header></storyface-header>
+<div class="row chat-page">
+        <div class="col-4 col-lg-3">
+            <div class="chat-profile-pic">
+                <img class="profile-pic" ng-src="/storyface/profile-pics/{{$ctrl.profile.id}}.png"> 
+            </div>
+            <div class="chat-webcam">            
+                <face-analysis show-emojis="true"></face-analysis>            
+            </div>
+        </div>
+        <div class="chatbox col-8 col-lg-9">
+            <div class="row">
+                <h3 class="mx-auto">{{'chat_with' | translate}} {{$ctrl.profile.name}} !</h3>                
+                <md-button id="leave-chat-button" class="md-icon-button" ng-click="$ctrl.leave()">
+                    <img class="leave-chat-img" alt="{{'leave_conv' | translate}}" ng-src="/storyface/images/close2.png">
+                </md-button>
+            </div>
+            <div id="message-box">
+                <div class="m-2 clearfix" ng-repeat='message in $ctrl.actualDiscussion'  id="{{$last?'lastMessage':''}}">
+                    <div class="message rounded" ng-class="{'message-me' : message.me, 'float-right' : message.me}">
+                        <h5 ng-if="message.me" >
+                            {{"Me" | translate}}
+                        </h5>
+                        <h5 ng-if="!message.me" >
+                           {{$ctrl.profile.name}}
+                        </h5>
+                        <p>
+                            {{message.text}}
+                           <span ng-bind-html="message.emotion | emoji"></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row m-2" ng-if="$ctrl.profileIsTyping">
+                    <div class="typing rounded col-3">
+                        <h5>{{$ctrl.profile.name}}</h5>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>                        
+                    </div>
+                </div>
+                <div class="row m-2" ng-if="$ctrl.profileHasLeftChat">
+                    <p class="col-12">
+                        {{$ctrl.profile.name}} {{'has_left_chat' | translate}}. 
+                    </p>
+                    <p class="col-12">
+                        <a ng-click="$ctrl.findLoveAgain()" href="#">{{'try_to_find_love_again' | translate}}</a>
+                        
+                    </p>                    
+                </div>
+                <div class="row m-2" ng-if="$ctrl.possibleAnswers.length && !$ctrl.userHasLeftChat">
+                    <div class="offset-3 col-9">
+                        <div class="row">
+                            <div ng-repeat='answer in $ctrl.possibleAnswers' class="answer rounded m-1" ng-click="$ctrl.answer(answer)">
+                                <p>
+                                    {{answer.user_answer.text}}
+                                    <span ng-bind-html="answer.user_answer.emotion | emoji"></span>
+                                </p>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+                <div id="chatBottom"></div>
+            </div>
+        </div>
+</div>

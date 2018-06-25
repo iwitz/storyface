@@ -1,0 +1,35 @@
+
+	<div ng-repeat="step in $ctrl.ngModel.normal_flow" class="discussion-step">
+		<message initial-message="step.question" label="{{'profile_question' | translate}}" message-change="step.question = message"></message>
+		<div ng-repeat="answer in step.answers" class="discussion-answer">
+			<div class="row">
+				<div class="offset-md-3 col-md-9">
+					<message initial-message="answer.user_answer" label="{{ 'user_answer' | translate }}" message-change="answer.user_answer = message"></message>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-9">
+					<message initial-message="answer.profile_answer" label="{{'profile_answer' | translate}}" message-change="answer.profile_answer = message" exit-option="true"></message>
+				</div>
+			</div>
+			<div class="answer-options">
+				<md-button class="md-raised md-warn" ng-click="$ctrl.removeAnswer(step, $index)" ng-disabled="step.answers.length<=1">{{ 'remove_answer' | translate }}</md-button>
+				<md-button class="md-raised" ng-if="$last" ng-click="$ctrl.addAnswer(step)">{{ 'add_answer' | translate }}</md-button>
+			</div>
+		</div>
+		<div class="step-options">
+			<md-button class="md-raised" ng-click="$ctrl.addStepAbove($index)">{{ 'add_step_above' | translate }}</md-button>
+			<md-button class="md-raised" ng-click="$ctrl.addStepBelow($index)">{{ 'add_step_below' | translate }}</md-button>
+			<md-button class="md-raised md-warn" ng-click="$ctrl.removeStep($index)" ng-disabled="$ctrl.ngModel.normal_flow.length<=1"> {{ 'remove_step' | translate }}</md-button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<message initial-message="$ctrl.ngModel.answer_after_phone_number" label="{{ 'answer_after_phone_number' | translate }}" message-change="$ctrl.ngModel.answer_after_phone_number = message"></message>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<message initial-message="$ctrl.ngModel.answer_exit_on_lies" label="{{ 'answer_after_lies' | translate }}" message-change="$ctrl.ngModel.answer_exit_on_lies = message"></message>
+		</div>
+	</div>

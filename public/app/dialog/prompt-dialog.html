@@ -1,0 +1,16 @@
+<md-dialog>
+	<!-- <md-toolbar> -->
+		<h3 class="dialog-title p-2">{{title}}</h3>
+	<!-- </md-toolbar> -->
+	<div class="container-fluid">
+		<div class="row">
+			<md-input-container class="mx-auto col-10">
+				<label>{{label}}</label>
+				<input type="text" name="value" ng-model="value"/>
+			</md-input-container>
+		</div>
+		<div class="row">
+			<md-button class="md-raised md-primary col-6 mx-auto" ng-click="returnValue()" ng-model="value">{{validButton}}</md-button>
+		</div>
+	</div>
+</md-dialog>

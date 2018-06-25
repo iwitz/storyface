@@ -1,0 +1,11 @@
+ <canvas ng-show="$ctrl.analysisHasStarted" class="face-analysis-video">
+
+ </canvas>
+<span class="emoji-on-video" ng-show="$ctrl.showEmojis && $ctrl.analysisHasStarted" ng-bind-html="$ctrl.currentEmotion | emoji:$ctrl.emojiSize"></span>
+<div ng-hide="$ctrl.analysisHasStarted || $ctrl.webcamDenied" class="loading-container">
+	<div class="loading-icon"  ></div>
+	<p>{{'face_analysis_loading' | translate }}</p>
+</div>
+<div ng-show="$ctrl.webcamDenied" class="webcam-denied">
+	<p>{{'Webcam_denied' | translate}}</p>
+</div>

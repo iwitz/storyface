@@ -1,0 +1,24 @@
+{
+"dev" :
+  {
+    "mongoserver" : "mongodb://127.0.0.1/storyface",
+    "serverport" : 4443,
+    "serverip" : "localhost",
+    "adminpassword" : "adminpassword",
+    "adminsurname" : "ADMIN",
+    "adminemail" : "admin@storyface.storyface",
+    "adminname" : "admin",
+    "salt" : "NaCl"
+  },
+  "prod" :
+  {
+    "mongoserver" :"stub value",
+    "serverport" : 1337,
+    "serverip" : "stub value",
+    "adminpassword" : "stub value",
+    "adminsurname" : "stub value",
+    "adminemail" : "stub value",
+    "adminname" : "stub value",
+    "salt" : "stub value"
+  }
+}

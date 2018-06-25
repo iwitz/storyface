@@ -1,0 +1,64 @@
+<storyface-header></storyface-header>	
+<div class="container-fluid" >
+	<div class="row" ng-if="!$ctrl.noRemainingProfiles">
+		<div class="offset-md-1 col-md-2 col-3 next-match-button">
+			<md-button class="md-icon-button" ng-click="$ctrl.next($ctrl.profile)"  ng-disabled="$ctrl.profilePicIsLoading" aria-label="next">
+				<img src="/storyface/images/next.png">
+			</md-button>			
+		</div>
+		<div class="offset-md-1 col-md-4 col-6 p-10 profile-pic-name-container">
+			<div class="profile-pic">
+				<img ng-hide="$ctrl.profilePicIsLoading" ng-src="/storyface/profile-pics/{{$ctrl.profile.id}}.png" image-on-load="$ctrl.profilePicIsLoaded()" on-loading-error="$ctrl.profilePicNotFound()">
+				<img ng-show="$ctrl.profilePicIsLoading" src="/storyface/images/loading.gif">	
+			</div>
+			<div class="profile-name text-center">
+				<p>				
+					{{$ctrl.profile.name}}
+				</p>
+			</div>
+		</div>
+		<div class="offset-md-1 col-md-2 col-3 next-match-button">
+			<md-button class="md-icon-button" href="/storyface/{{$ctrl.lang}}/chat/{{$ctrl.profile.id}}" ng-disabled="$ctrl.profilePicIsLoading" aria-label="next">
+				<img src="/storyface/images/match.png">
+			</md-button>			
+		</div>
+	</div>
+	<div class="row profile-info-container" ng-hide="$ctrl.noRemainingProfiles">
+		<p class="col-12 col-md-6 col-lg-4 profile-info">
+			<md-tooltip md-direction="top">{{'Age' | translate}}</md-tooltip>
+			<img ng-src="/storyface/images/profile_age.png">
+			{{$ctrl.profile.age}}
+		</p>
+		<p class="col-12 col-md-6 col-lg-4 profile-info">
+			<md-tooltip md-direction="top">{{'Profession' | translate}}</md-tooltip>
+			<img ng-src="/storyface/images/profile_case.png">
+			{{$ctrl.profile.profession}}
+		</p>
+		<p class="col-12 col-md-6 col-lg-4 profile-info">
+			<md-tooltip md-direction="top">{{'Looking_for' | translate}}</md-tooltip>
+			<img ng-src="/storyface/images/profile_aim.png">
+			{{$ctrl.profile.target}}
+			</p>
+		<p class="col-12 col-md-6 col-lg-4 profile-info">
+			<md-tooltip md-direction="top">{{'Quote' | translate}}</md-tooltip>
+			<img ng-src="/storyface/images/profile_quote.png">
+			{{$ctrl.profile.quote}}
+		</p>
+		<p class="col-12 col-md-6 col-lg-4 profile-info">
+			<md-tooltip md-direction="top">{{'Hobby' | translate}}</md-tooltip>
+			<img ng-src="/storyface/images/profile_love.png">
+			{{$ctrl.profile.hobby}}
+		</p>
+		<p class="col-12 col-md-6 col-lg-4 profile-info">
+			<md-tooltip md-direction="top">{{'Movie' | translate}}</md-tooltip>
+			<img ng-src="/storyface/images/profile_film.png">
+			{{$ctrl.profile.movie}}
+		</p>	
+	</div>
+	<div ng-show="$ctrl.noRemainingProfiles" class="row">
+		<div  class="mx-auto m-5">
+			<p>{{ 'no_one_left_to_match' | translate}}</p>
+			<md-button class="md-raised" ng-click="$ctrl.emptyForbiddenProfiles()">{{'empty_forbidden_profiles' | translate}}</md-button>
+		</div>
+	</div>
+</div>

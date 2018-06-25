@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="storyface">
+<head>
+	<base href="/storyface/">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon"  href="favicon.ico">
+ 	<link rel="stylesheet" type="text/css" href="styles/angular-material.min.css" />
+ 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.css" />
+ 	<link rel="stylesheet" type="text/css" href="styles/style.css">
+ 	<link rel="stylesheet" type="text/css" href="/storyface/angular/ui-cropper.css">
+	<title>StoryFace (no webcam)</title>
+	<script src="/storyface/base64.js"></script>
+	<script src="/storyface/FileSaver.js"></script>
+	<script src="/storyface/angular/angular.js"></script>
+	<script src="/storyface/angular/angular-translate.js"></script>
+	<script src="/storyface/angular/angular-cookies.js"></script>
+	<script src="/storyface/angular/angular-route.js"></script>
+	<script src="/storyface/angular/angular-sanitize.js"></script>
+	<script src="/storyface/angular/angular-animate.js"></script>
+	<script src="/storyface/angular/angular-aria.js"></script>
+	<script src="/storyface/angular/angular-messages.js"></script>
+	<script src="/storyface/angular/angular-material.min.js"></script>
+	<script src="/storyface/angular/Chart.min.js"></script>
+	<script src="/storyface/angular/angular-chart.min.js"></script>
+	<script src="/storyface/app/app.module.js"></script>
+	<script src="/storyface/app/app.translations.config.js"></script>
+	<script src="/storyface/app/app.routes.config.js"></script>
+	<script src="/storyface/app/dialog/storyface-dialog.service.js"></script>
+	<script src="/storyface/app/face-analysis/face-analysis.service.js"></script>
+	<script src="/storyface/app/face-analysis/face-analysis.component.js"></script>
+	<script src="/storyface/app/storyface-header/storyface-header.component.js"></script>
+	<script src="/storyface/app/user-info/user-info.service.js"></script>
+	<script src="/storyface/app/welcome/welcome.component.js"></script>
+	<script src="/storyface/app/gender/gender.component.js"></script>
+	<script src="/storyface/app/emotions/emotions.component.js"></script>
+	<script src="/storyface/app/emotions/emotion-star.component.js"></script>
+	<script src="/storyface/app/emotions/gauge.component.js"></script>
+	<script src="/storyface/app/profile-choice/profile-choice.component.js"></script>
+	<script src="/storyface/app/profile-management/profile.service.js"></script>
+	<script src="/storyface/app/profile-management/help.component.js"></script>
+	<script src="/storyface/app/chat/chat.component.js"></script>
+	<script src="/storyface/app/profile-management/profile-list.component.js"></script>
+	<script src="/storyface/app/profile-management/profile.component.js"></script>
+	<script src="/storyface/app/profile-management/discussion.component.js"></script>
+	<script src="/storyface/app/profile-management/message.component.js"></script>
+	<script src="/storyface/app/profile-management/add-profile.component.js"></script>
+	<script src="/storyface/app/profile-management/edit-profile.component.js"></script>
+	<script src="/storyface/app/audio/audio.service.js"></script>
+	<script src="/storyface/app/emojis/emoji.filter.js"></script>
+	<script src="/storyface/app/info/info.component.js"></script>
+	<script src="/storyface/app/authentication/authentication.service.js"></script>
+	<script src="/storyface/app/authentication/authentication.component.js"></script>
+	<script src="/storyface/scripts/responsivevoice.js"></script>
+	<script src="/storyface/scripts/accordion.js"></script>
+	<script src="/storyface/app/authentication/signup.component.js"></script>
+	<script src="/storyface/angular/ui-cropper.js"></script>
+	<script src="/storyface/app/user-info/user-info.component.js"></script>
+	<script src="/storyface/app/user-info/user-info-edit.component.js"></script>
+	<script src="/storyface/app/dialog/naughty-boy.service.js"></script>
+
+</head>
+<body ng-controller="appController">
+	<div ng-view></div>
+	<div id="toast-container"></div>
+</body>
+</html>

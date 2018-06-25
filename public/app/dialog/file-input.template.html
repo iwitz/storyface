@@ -1,0 +1,8 @@
+<md-input-container>
+	<input aria-label="pic" type="file" fileread="fileData" accept="{{acceptedFormats}}">
+</md-input-container>
+<p ng-if="tip">{{tip}}</p>
+
+<md-button class="md-raised md-primary" ng-click="returnFile()" ng-disabled="!fileData">
+	{{validButton}}
+</md-button>

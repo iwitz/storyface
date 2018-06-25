@@ -1,0 +1,31 @@
+<storyface-header></storyface-header>		
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-5 col-12 offset-md-1">
+			<face-analysis></face-analysis>
+			<p ng-if="$ctrl.faceAnalysisHasStarted && !$ctrl.gender" class="gender-hint text-center">
+				{{'show_face_to_camera' | translate}}
+			</p>
+			<p ng-if="$ctrl.gender" class="gender-hint text-center">
+				{{'it_seems_like_you_are_a_n_years_old_gender' |translate:$ctrl.translationData}}
+			</p>		
+		</div>
+		<div class="col-md-5 col-12">
+			<div class="row">
+				<div class="offset-md-7 col-md-4 col-6">
+					<md-button aria-label="Choose man" ng-disabled="$ctrl.disableGenderSelection" class="md-icon-button" href="/storyface/{{$ctrl.lang}}/emotions" ng-click="$ctrl.saveUserInfo('m')">
+						<img class="col-12" src="/storyface/images/homme.png" alt="M"/>
+					</md-button>			
+				</div>
+				<h2 class="offset-md-1 col-md-11 col-12 order-md-0 order-first gender-question">
+					{{'what_are_you_looking_for' | translate}}
+				</h2>
+				<div class="offset-md-7 col-md-4 col-6">
+					<md-button aria-label="Choose woman" ng-disabled="$ctrl.disableGenderSelection" class="md-icon-button" href="/storyface/{{$ctrl.lang}}/emotions" ng-click="$ctrl.saveUserInfo('f')">
+						<img class="col-12" src="/storyface/images/femme.png" alt="F"/>
+					</md-button>								
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>

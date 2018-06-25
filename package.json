@@ -1,0 +1,31 @@
+{
+  "name": "storyface",
+  "version": "1.0.0",
+  "description": "This directory should contain Storyfaces's components in an AngularJS way.   There will be a single web page (index.html), the routing will be carried out by angular, thus avoiding the reinitialization of the API on every page load.   Therefore the nodejs web server will no longer be needed (or it will be trivial). The only server required will be the profileAPI (i.e. the interface between the app and MongoDB).",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.utc.fr/teamdevweb/Storyface.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-jwt": "^5.3.1",
+    "flags": "^0.1.3",
+    "jsonwebtoken": "^8.2.0",
+    "mongoose": "^5.0.6",
+    "node-datetime": "^2.0.6",
+    "node-flags": "^0.1.9",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "winston": "^2.4.1"
+  },
+  "devDependencies": {
+    "forever": "^0.15.3"
+  }
+}

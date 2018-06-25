@@ -1,0 +1,45 @@
+<div class="row row-form">
+	<div class="col-md-9">
+		<div class="row">
+			<md-input-container>
+				<label>{{$ctrl.label}}</label>
+				<textarea type="text" rows="3" ng-model="$ctrl.innerValue.text" ng-change="$ctrl.fireMessage()"></textarea>
+			</md-input-container>
+		</div>
+		<div class="row" ng-show="$ctrl.innerValue.homosexual_specific">
+			<md-input-container class="chat-textarea">
+				<label>{{$ctrl.label}} for homosexuals</label>
+				<textarea type="text" rows="3" ng-model="$ctrl.innerValue.homosexual_text" ng-change="$ctrl.fireMessage()"></textarea>
+			</md-input-container>
+		</div>
+
+	</div>
+	<div class="col-md-3">
+		<div class="row">
+			<md-input-container class="emotion-select">
+				<label>Emotion</label>
+				<md-select ng-model="$ctrl.innerValue.emotion" ng-change="$ctrl.fireMessage()">
+					<md-option ng-repeat="emotion in $ctrl.emotions" ng-value="emotion">
+						<span ng-bind-html="emotion | emoji"></span>
+						{{emotion}}
+					</md-option>
+				</md-select>
+			</md-input-container>
+		</div>
+		<div class="row">
+			<md-input-container class="homosexual-switch">
+				<md-switch ng-model="$ctrl.innerValue.homosexual_specific" ng-change="$ctrl.fireMessage()">
+					{{ 'homosexual_specific' | translate }}
+				</md-switch>
+			</md-input-container>
+		</div>
+		<div class="row" ng-if="$ctrl.exitOption">
+			<md-input-container>
+				<md-switch ng-model="$ctrl.innerValue.exit" ng-change="$ctrl.fireMessage()">
+					{{'chat_exit' | translate}}
+				</md-switch>
+			</md-input-container>
+		</div>
+
+	</div>
+</div>

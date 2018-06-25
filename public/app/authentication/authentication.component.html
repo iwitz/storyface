@@ -1,0 +1,39 @@
+<storyface-header></storyface-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto">
+      <md-content>
+        <md-tabs md-dynamic-height>
+          <md-tab label="{{ 'login' | translate}}">
+              <form ng-submit="$ctrl.login()" name="frm" class="m-2">
+                <h3 class="login-form-heading">{{'connection' | translate}}</h3>
+                <md-input-container>
+                  <label>
+                    {{'username' | translate}}
+                  </label>
+                  <input type="text" name="username" ng-model="$ctrl.username">
+                </md-input-container>
+                <md-input-container >
+                  <label>
+                    {{'password' | translate}}
+                  </label>
+                  <input type="password" name="password" ng-model="$ctrl.password" required>
+                </md-input-container>
+                <div class="mx-auto col-8">
+                  <md-button  type="submit" class="md-raised md-primary col-12" aria-label="login" ng-disabled="frm.$invalid">
+                    {{'login' | translate}}
+                  </md-button>
+
+                </div>
+              </form>
+          </md-tab>
+          <md-tab label="{{ 'signup' | translate}}">
+            <signup></signup>
+          </md-tab>
+        </md-tabs>
+      </md-content>
+
+    </div>
+  </div>
+</div>

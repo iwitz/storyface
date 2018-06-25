@@ -1,0 +1,7 @@
+<div class="gauge-container">
+	<div class="gauge-circle" style="background-color: {{$ctrl.color}}"></div>
+	<div class="gauge-hide" style="background-image:
+    linear-gradient({{$ctrl.degValue}}deg, transparent 50%, {{$ctrl.gradientColor}} 50%),
+    linear-gradient(90deg, white 50%, transparent 50%)"></div>
+    <span class="gauge-emoji-container" ng-bind-html="$ctrl.emotion | emoji"></span>
+</div>
