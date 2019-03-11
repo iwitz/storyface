@@ -8,7 +8,7 @@
 
 This project uses a MEAN Stack. As such, its dependencies are Angular libraries for the front end and MongoDB, NodeJS and some extra Angular modules for the back end.
 
-The live version is available [here](https://storyface.space) ; it shows changes that we are not the author of and do not claim ownership of.
+The live version is available [here](http://bouchard.pers.utc.fr/storyface/) ; it shows changes that we are not the author of and do not claim ownership of.
 
 ## License
 
